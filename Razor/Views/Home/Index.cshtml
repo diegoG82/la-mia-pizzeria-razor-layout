@@ -41,10 +41,7 @@
 
 @{
     int result = PrintSum(5);
-   
-}
-
-
+ }
 
 <span> Il risultato della somma dei miei numeri è: @result</span>
 
@@ -73,14 +70,51 @@
 
 <h2>La lettera "a" compare nella frase @counter volte</h2>
 
+
+
 <p>
     4. Creare una List
         di 20 numeri interi (generati random da 1 a 90, 1 e 90 inclusi) e mostrare in pagina solo i numeri compresi tra 20 e 70
 </p>
 
+<h5>La lista dei numeri generati casualmente e':'</h5>
+
+@{
+    List<int> mynumberslist = new List<int>();
+    Random random = new Random();
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            int randomNum = random.Next(1, 90);
+            mynumberslist.Add(randomNum);
+        }
+
+    }
+}
+
+@foreach(int numbertoprint in mynumberslist)
+{
+    @if(numbertoprint >= 20 && numbertoprint <=70)
+    {
+        <span>@numbertoprint</span>
+    }
+}
+
+
+
+
 <p>
     5. Stampare in pagina la data e l'ora attuale (usando la classe DateTime) con il formato anno-mese-giorno ore:minuti:secondi
 </p>
+
+@{
+    DateTime now = DateTime.Now;
+}
+
+<p>Oggi e' il: @now.ToString("dd/MM/yyyy") e sono le ore: @now.ToString("HH:mm:ss")</p>
+
+
+
 
 <p>
     6. Partendo dalla data di oggi (usando la classe DateTime) stampare in pagina
@@ -88,6 +122,26 @@
     b. che giorno della settimana è oggi (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)
     c. che giorno della settimana sarà nello stesso giorno e mese di oggi ma tra un anno (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)
 </p>
+
+
+@{
+    DateTime today = DateTime.Today;
+}
+
+<p>Oggi e': @today.ToString("dddd")</p>
+
+
+@{
+    DateTime sevendaysago = today.AddDays(-7);
+}
+<p>Una settimana fa era sempre @today.ToString("dddd") ma la data era: @sevendaysago.ToString("dd/MM/yyyy")</p>
+
+
+@{
+    DateTime nextyesarday = today.AddYears(1);
+}
+
+<p>Tra un'anno, nel @nextyesarday.ToString("yyyy") il giorno @today.ToString("dd/MM") sara' @nextyesarday.ToString("dddd")"</p>
 
 
 
