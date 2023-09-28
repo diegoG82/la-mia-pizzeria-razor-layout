@@ -14,8 +14,15 @@
 
 <body>
     @Html.Partial("Partials/_Header")
+ 
+
+ 
+
     <div>
+        @RenderSection("Button", required: false)
         @RenderBody()
+
+       
     </div>
     @Html.Partial("Partials/_Footer")
 </body>

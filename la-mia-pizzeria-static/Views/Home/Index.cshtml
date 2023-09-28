@@ -2,6 +2,28 @@
     Layout = "_MioLayout";
 }
 
+@section Button{
+    <div class="btn_main mt-4 mb-4 text-center ">
+        <button class="btn btn-danger " onclick="showPopup()">ATTENTION!</button>
+    </div>
+      
+    <script>
+        function showPopup() {
+
+            const popup = window.open("", "Popup", "width=500,height=300");
+
+
+            popup.document.body.innerHTML = "GOGOGO!!!";
+        }
+
+
+        const button = document.querySelector("button");
+        button.addEventListener("click", showPopup);
+
+    </script>
+}
+
+
 <h1 class="text-center mt-2 mb-4">WELCOME TO KAWAII PIZZA ADMIN PAGE</h1>
     <main>
 
@@ -105,7 +127,7 @@
 
     </main>
 
-  
+
 
 
  
